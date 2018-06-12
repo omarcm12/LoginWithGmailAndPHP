@@ -3,6 +3,8 @@
 	class GoogleAuth{
 		protected $client;
 
+
+		/* DATOS DE LA GOOGLE.CONSOLE */
 		public function __construct(Google_Client $googleClient = null){
 			$this->client = $googleClient;
 			if($this->client){

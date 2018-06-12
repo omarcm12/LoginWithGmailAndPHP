@@ -5,10 +5,14 @@
 	require_once('app/init.php');
 
 	$googleClient = new Google_Client();
+	
+	/*LAS SIGUIENTES DOS LINEAS SE AGREGARON PARA SOLUCIONAR UN ERROR DE SSL EN MAMP (EN XAMPP NO ES NECESARIO)*/
 	$guzzleClient = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
     $googleClient->setHttpClient($guzzleClient);
+	
+	
 	$auth = new GoogleAuth($googleClient); 
-//	$auth->checkRedirectCode()
+
 
 	if($auth->checkRedirectCode()){
 		//die($_GET['code']);
